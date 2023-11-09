@@ -7,3 +7,4 @@ This app features:
 <ul>
 <li>Color Theme</li>
 <li>Custom Header for Navigation View, with animated images</li>
+<li>Extension for Double (Currency & Percentage), Preview Provider (Object model mock)</li>
