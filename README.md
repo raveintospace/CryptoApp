@@ -6,5 +6,8 @@ SwiftUI Crypto App - MVVM, Core Data, Combine and Api Requests, following Swiftf
 This app features: 
 <ul>
 <li>Color Theme</li>
-<li>Custom Header for Navigation View, with animated images</li>
+<li>Custom Header for Navigation View, with animated images and rows</li>
 <li>Extension for Double (Currency & Percentage), Preview Provider (Object model mock)</li>
+<br/>
+<li>MVVM & Environment Object for our Home VM</li>
+<li>Api request using Combine</li>
