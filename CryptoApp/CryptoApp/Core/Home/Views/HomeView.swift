@@ -22,11 +22,10 @@ struct HomeView: View {
             VStack {
                 homeHeader
                 
-                List {
-                    CoinRowView(coin: DeveloperPreview.instance.coin, showHoldingColumn: false)
+                if !showPortfolio {
+                    allCoinsList
+                    .transition(.move(edge: .leading))
                 }
-                .listStyle(.plain)
-                
                 Spacer(minLength: 0)
             }
         }
@@ -72,5 +71,15 @@ extension HomeView {
                 }
         }
         .padding(.horizontal)
+    }
+    
+    private var allCoinsList: some View {
+        List {
+            ForEach(vm.allCoins) { coin in
+                CoinRowView(coin: coin, showHoldingColumn: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+            }
+        }
+        .listStyle(.plain)
     }
 }
