@@ -10,4 +10,5 @@ This app features:
 <li>Extension for Double (Currency & Percentage), Preview Provider (Object model mock)</li>
 <br/>
 <li>MVVM & Environment Object for our Home VM</li>
-<li>Api request using Combine</li>
+<li>API request using Combine</li>
+<li>Reusable Network Manager</li>
