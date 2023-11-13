@@ -12,3 +12,4 @@ This app features:
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
 <li>Reusable Network Manager</li>
+<li>Specific module to download images: View, ViewModel & DataService</li>
