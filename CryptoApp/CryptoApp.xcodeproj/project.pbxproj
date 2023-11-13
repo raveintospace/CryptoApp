@@ -22,6 +22,9 @@
 		3434A8332AFFCA8800286A0F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434A8322AFFCA8800286A0F /* HomeViewModel.swift */; };
 		3434A8362AFFCFC800286A0F /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434A8352AFFCFC800286A0F /* CoinDataService.swift */; };
 		3434A8392AFFDA6100286A0F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434A8382AFFDA6100286A0F /* NetworkManager.swift */; };
+		345706582B028F500015CEB7 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345706572B028F500015CEB7 /* CoinImageView.swift */; };
+		3457065A2B0290F20015CEB7 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345706592B0290F20015CEB7 /* CoinImageService.swift */; };
+		3457065C2B0292E10015CEB7 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457065B2B0292E10015CEB7 /* CoinImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		3434A8322AFFCA8800286A0F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3434A8352AFFCFC800286A0F /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		3434A8382AFFDA6100286A0F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		345706572B028F500015CEB7 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
+		345706592B0290F20015CEB7 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
+		3457065B2B0292E10015CEB7 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 		340F4E662AFD1F0A007B62CC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				345706562B028F3F0015CEB7 /* CoinImage */,
 				340F4E672AFD1F1D007B62CC /* CircleButton */,
 			);
 			path = Components;
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				3434A8352AFFCFC800286A0F /* CoinDataService.swift */,
+				345706592B0290F20015CEB7 /* CoinImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,6 +186,15 @@
 				3434A8382AFFDA6100286A0F /* NetworkManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		345706562B028F3F0015CEB7 /* CoinImage */ = {
+			isa = PBXGroup;
+			children = (
+				345706572B028F500015CEB7 /* CoinImageView.swift */,
+				3457065B2B0292E10015CEB7 /* CoinImageViewModel.swift */,
+			);
+			path = CoinImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,13 +272,16 @@
 				3434A8332AFFCA8800286A0F /* HomeViewModel.swift in Sources */,
 				3434A8392AFFDA6100286A0F /* NetworkManager.swift in Sources */,
 				3417D3C12AFCFC5100CE752D /* ContentView.swift in Sources */,
+				345706582B028F500015CEB7 /* CoinImageView.swift in Sources */,
 				340F4E652AFD1DEE007B62CC /* HomeView.swift in Sources */,
 				3417D3BF2AFCFC5100CE752D /* CryptoAppApp.swift in Sources */,
 				340F4E692AFD1F2C007B62CC /* CircleButtonView.swift in Sources */,
 				3417D3CE2AFCFF4B00CE752D /* Color.swift in Sources */,
 				340F4E6B2AFD2350007B62CC /* CircleButtonAnimationView.swift in Sources */,
+				3457065C2B0292E10015CEB7 /* CoinImageViewModel.swift in Sources */,
 				340F4E722AFD30B3007B62CC /* PreviewProvider.swift in Sources */,
 				340F4E742AFD33E8007B62CC /* Double.swift in Sources */,
+				3457065A2B0290F20015CEB7 /* CoinImageService.swift in Sources */,
 				340F4E6E2AFD296D007B62CC /* CoinModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
