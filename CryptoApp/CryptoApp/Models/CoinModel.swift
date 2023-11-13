@@ -104,6 +104,7 @@ struct CoinModel: Identifiable, Codable {
         return (currentHoldings ?? 0) * currentPrice
     }
     
+    // custom property to convert marketCapRank (Double) to Int
     var rank: Int {
         return Int(marketCapRank ?? 0)
     }
