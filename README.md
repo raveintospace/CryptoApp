@@ -13,3 +13,4 @@ This app features:
 <li>API request using Combine</li>
 <li>Reusable Network Manager</li>
 <li>Specific module to download images: View, ViewModel & DataService</li>
+<li>Local FileManager to store downloaded images from API</li>
