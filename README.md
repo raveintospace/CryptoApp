@@ -14,3 +14,5 @@ This app features:
 <li>Reusable Network Manager</li>
 <li>Specific module to download images: View, ViewModel & DataService</li>
 <li>Reusable Local FileManager to store downloaded images from API</li>
+<li>Reusable SearchBarView that binds to strings</li>
+<li>UIApplication extension to dismiss keyboard</li>
