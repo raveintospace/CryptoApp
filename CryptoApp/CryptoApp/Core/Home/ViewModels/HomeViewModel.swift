@@ -1,7 +1,7 @@
 //
 //  HomeViewModel.swift
 //  CryptoApp
-//
+//  Lesson 11 - Filter with Combine
 //  Created by Uri on 11/11/23.
 //
 
@@ -23,37 +23,41 @@ class HomeViewModel: ObservableObject {
         addSubscribers()
     }
     
+    // subscription to searchText & dataService, when either of them changes, maps & sinks the updates
     func addSubscribers() {
-                
-        // subscription to searchText & dataService, when any of them updates, sinks the updates
         $searchText
             .combineLatest(dataService.$allCoins)
-            .map { (text, startingCoins) -> [CoinModel] in
-                
-                guard !text.isEmpty else {
-                    return startingCoins
-                }
-                
-                let lowercasedText = text.lowercased()
-                
-                return startingCoins.filter { (coin) -> Bool in
-                    return coin.name.lowercased().contains(lowercasedText) ||
-                    coin.symbol.lowercased().contains(lowercasedText) ||
-                    coin.id.lowercased().contains(lowercasedText)
-                }
-            }
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)    // -> filter after 0.5 seconds
+            .map(filterCoins)
             .sink { [weak self] (returnedCoins) in
                 guard let self = self else { return }
                 self.allCoins = returnedCoins
             }
             .store(in: &cancellables)
+    }
+    
+    // extracted .map from $searchText
+    private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
+        guard !text.isEmpty else {
+            return coins
+        }
         
-        // subscription to allCoins array of CoinDataService - not necessary when using our searchBar
+        let lowercasedText = text.lowercased()
+        
+        return coins.filter { (coin) -> Bool in
+            return coin.name.lowercased().contains(lowercasedText) ||
+            coin.symbol.lowercased().contains(lowercasedText) ||
+            coin.id.lowercased().contains(lowercasedText)
+        }
+    }
+}
+
+
+// subscription to allCoins array of CoinDataService - not necessary when using our searchBar
+// see comits previous to lesson 11
 //        dataService.$allCoins
 //            .sink { [weak self] (returnedCoins) in
 //                guard let self = self else { return }
 //                self.allCoins = returnedCoins
 //            }
 //            .store(in: &cancellables)
-    }
-}
