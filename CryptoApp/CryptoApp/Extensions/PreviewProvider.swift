@@ -1,7 +1,7 @@
 //
 //  PreviewProvider.swift
 //  CryptoApp
-//  Used in previews to have a mock crypto to test
+//  Used in previews to have mocks to test views
 //  Created by Uri on 9/11/23.
 //
 
@@ -21,6 +21,9 @@ class DeveloperPreview {
     private init() { }  // private so instance can only be initialized from class DeveloperPreview
     
     let homeVM = HomeViewModel()
+    
+    let stat1 = StatisticModel(title: "Market Cap", value: "€12,5Bn", percentageChange: 25.34)
+    let stat2 = StatisticModel(title: "Total Volume", value: "€1.23Tr")
     
     let coin = CoinModel(
         id: "bitcoin",
