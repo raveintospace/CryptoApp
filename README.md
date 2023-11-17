@@ -17,4 +17,6 @@ This app features:
 <br/>
 <li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
 <li>UIApplication extension to dismiss keyboard</li>
-<li></li>
+<br/>
+<li>Specific module to read global crytpo market stats: Views, Model</li> --> under construction
+<li>HomeStatsView animated using its aligment values</li>
