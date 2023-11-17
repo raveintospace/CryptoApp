@@ -177,4 +177,27 @@ struct MarketDataModel: Codable {
         case marketCapPercentage = "makert_cap_percentage"
         case marketCapChangePercentage24HUsd = "market_cap_change_percentage_24h_usd"
     }
+    
+    // return MarketDataModel values in chosen currency
+    var marketCap: String {
+        if let item = totalMarketCap.first(where: { $0.key == "usd" }) {
+            return "\(item.value)"
+        }
+        return ""
+    }
+    
+    var volume: String {
+        if let item = totalVolume.first(where: { $0.key == "usd" }) {
+            return "\(item.value)"
+        }
+        return ""
+    }
+    
+    // how much % of total crypto market has BTC
+    var btcDominance: String {
+        if let item = marketCapPercentage.first(where: { $0.key == "btc" }) {
+            return "\(item.value.asPercentString())"
+        }
+        return ""
+    }
 }
