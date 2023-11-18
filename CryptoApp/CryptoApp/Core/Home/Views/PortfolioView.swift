@@ -13,6 +13,7 @@ struct PortfolioView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
     @State private var selectedCoin: CoinModel? = nil
+    @State private var amountText: String = ""
     
     var body: some View {
         NavigationView {
@@ -20,6 +21,30 @@ struct PortfolioView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $vm.searchText)
                     coinLogoList
+                    
+                    if selectedCoin != nil {
+                        VStack(spacing: 20) {
+                            HStack {
+                                Text("Current price of \(selectedCoin?.symbol.uppercased() ?? ""):")
+                                Spacer()
+                                Text(selectedCoin?.currentPrice.asCurrencyWith6Decimals() ?? "")
+                            }
+                            Divider()
+                            HStack {
+                                Text("Amount in your portfolio:")
+                                Spacer()
+                                TextField("Ex: 4.6", text: $amountText)
+                                    .multilineTextAlignment(.trailing)
+                                    .keyboardType(.decimalPad)
+                            }
+                            Divider()
+                            HStack {
+                                Text("Current value:")
+                                Spacer()
+                                Text(getCurrentValue().asCurrencyWith2Decimals())
+                            }
+                        }
+                    }
                 }
             }
             .navigationTitle("Edit Portfolio")
@@ -67,5 +92,12 @@ extension PortfolioView {
             .padding(.vertical, 4)
             .padding(.leading)
         })
+    }
+    
+    private func getCurrentValue() -> Double {
+        if let amount = Double(amountText) {
+            return amount * (selectedCoin?.currentPrice ?? 0)
+        }
+        return 0    // if we can't get the amount
     }
 }
