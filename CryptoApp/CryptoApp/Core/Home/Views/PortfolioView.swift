@@ -145,7 +145,7 @@ extension PortfolioView {
         UIApplication.shared.endEditing()
         
         // hide checkmark
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation(.easeOut) {
                 showCheckmark = false
             }
@@ -154,6 +154,7 @@ extension PortfolioView {
     
     private func removeSelectedCoin() {
         selectedCoin = nil
+        amountText = ""
         vm.searchText = ""
     }
 }
