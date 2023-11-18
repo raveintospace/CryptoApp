@@ -22,5 +22,5 @@ This app features:
 <li>Specific module for global crytpo market stats: Views, Model, DataService</li>
 <li>HomeStatsView animated using its aligment values</li>
 <br/>
-<li>PortfolioView as a sheet, with SearchBarView & view to input & save crypto coins to portfolio</li>
+<li>PortfolioView as a sheet, with SearchBarView and a view to input & save crypto coins to portfolio</li>
 <li></li>
