@@ -1,7 +1,7 @@
 //
 //  MarketDataModel.swift
 //  CryptoApp
-//  Lesson 13 - Minut 14
+//  Lesson 13
 //  Created by Uri on 17/11/23.
 //
 
@@ -181,14 +181,14 @@ struct MarketDataModel: Codable {
     // return MarketDataModel values in chosen currency
     var marketCap: String {
         if let item = totalMarketCap.first(where: { $0.key == "usd" }) {
-            return "\(item.value)"
+            return "$" + item.value.formattedWithAbbreviations()
         }
         return ""
     }
     
     var volume: String {
         if let item = totalVolume.first(where: { $0.key == "usd" }) {
-            return "\(item.value)"
+            return "$" + item.value.formattedWithAbbreviations()
         }
         return ""
     }
