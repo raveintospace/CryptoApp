@@ -66,7 +66,7 @@ struct CoinModel: Identifiable, Codable {
     let lastUpdated: String?
     let sparklineIn7D: SparklineIn7D?
     let priceChangePercentage24HInCurrency: Double?
-    let currentHoldings: Double?    // custom property to count how many currencies our user holds
+    let currentHoldings: Double?    // custom property to count how many currencies our user holds -> Amount
     
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image
