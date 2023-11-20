@@ -136,9 +136,13 @@ extension PortfolioView {
     }
     
     private func saveButtonPressed() {
-        guard let coin = selectedCoin else { return }
+        guard
+            let coin = selectedCoin,
+            let amount = Double(amountText)
+            else { return }
         
         // save to portfolio
+        vm.updatePortfolio(coin: coin, amount: amount)
         
         // show checkmark
         withAnimation(.easeIn) {
@@ -160,6 +164,5 @@ extension PortfolioView {
     private func removeSelectedCoin() {
         selectedCoin = nil
         amountText = ""
-        //vm.searchText = ""
     }
 }
