@@ -17,6 +17,8 @@ class HomeViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
+    @Published var isLoading: Bool = false
+    
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
     private let portfolioDataService = PortfolioDataService()
@@ -42,17 +44,7 @@ class HomeViewModel: ObservableObject {
         // subscription to allCoins (already filtered) & portfolioData, updates portfolioCoins
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
-            .map { (coinModels, portfolioEntities) -> [CoinModel] in
-                
-                // return the coins that are in our portfolio with its amount, return nil for those who aren't
-                coinModels
-                    .compactMap { (coin) -> CoinModel? in
-                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
-                            return nil
-                        }
-                        return coin.updateHoldings(amount: entity.amount)
-                    }
-            }
+            .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] (returnedCoins) in
                 guard let self = self else { return }
                 self.portfolioCoins = returnedCoins
@@ -66,12 +58,19 @@ class HomeViewModel: ObservableObject {
             .sink { [weak self] (returnedStats) in
                 guard let self = self else { return }
                 self.statistics = returnedStats
+                self.isLoading = false
             }
             .store(in: &cancellables)
     }
     
     func updatePortfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
+    
+    func reloadData() {
+        isLoading = true
+        coinDataService.getCoins()
+        marketDataService.getMarketData()
     }
     
     // extracted .map from $searchText
@@ -89,6 +88,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
+        // return the coins that are in our portfolio with its amount, return nil for those who aren't
+        allCoins
+            .compactMap { (coin) -> CoinModel? in
+                guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                    return nil
+                }
+                return coin.updateHoldings(amount: entity.amount)
+            }
+    }
+    
     private func mapGlobalMarketData(marketDataModel: MarketDataModel?, portfolioCoins: [CoinModel]) -> [StatisticModel] {
         var stats: [StatisticModel] = []
         
@@ -104,10 +114,21 @@ class HomeViewModel: ObservableObject {
             .map({ $0.currentHoldingsValue })
             .reduce(0, +)   // add all items from map and create a unique one [Double] -> Double
         
+        let previousValue = portfolioCoins
+            .map { (coin) -> Double in
+                let currentValue = coin.currentHoldingsValue
+                let percentChange = (coin.priceChangePercentage24H ?? 0) / 100
+                let previousValue = currentValue / (1 + percentChange)
+                return previousValue
+            }
+            .reduce(0, +)
+        
+        let percentageChange = ((portfolioValue - previousValue) / previousValue) * 100
+        
         let portfolio = StatisticModel(
             title: "Portfolio Value",
             value: portfolioValue.asCurrencyWith2Decimals(),
-            percentageChange: 0)
+            percentageChange: percentageChange)
         
         stats.append(contentsOf: [
             marketCap,
