@@ -71,6 +71,7 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
+        debugPrint("Reloading data")
     }
     
     // extracted .map from $searchText
