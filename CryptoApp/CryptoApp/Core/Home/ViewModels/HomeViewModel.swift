@@ -71,7 +71,8 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
-        debugPrint("Reloading data")
+        HapticManager.notification(type: .success)
+        print("Reloading data")
     }
     
     // extracted .map from $searchText
