@@ -22,6 +22,8 @@ This app features:
 <li>Specific module for global crytpo market stats: Views, Model, DataService</li>
 <li>HomeStatsView animated using its aligment values</li>
 <br/>
-<li>HomeView that shows Live Prices & user's portfolio within the same view, using a transition effect</li>
+<li>HomeView shows Live Prices & user's portfolio within the same view, using a transition effect</li>
 <li>PortfolioView: sheet view, with SearchBarView, to input & save crypto coins to portfolio</li>
 <li>PortfolioContainer (Model) & PortfolioDataService using Core Data to persist user's portfolio in the app</li>
+<li>Lists reload data with pull to refresh</li>
+<li>HapticManager to enable vibration when data is reloaded</li>
