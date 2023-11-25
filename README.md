@@ -27,3 +27,8 @@ This app features:
 <li>PortfolioContainer (Model) & PortfolioDataService using Core Data to persist user's portfolio in the app</li>
 <li>Lists reload data with pull to refresh</li>
 <li>HapticManager to enable vibration when data is reloaded</li>
+<br/>
+<li>Results sorted on user's choice</li>
+<li>Sort selectors set with opacity and animated with rotation3DEffect</li>
+<br/>
+<li>Custom NavigationLink for lazy loading of DetailView: background NavigationLink & segue method</li>
