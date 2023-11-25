@@ -44,13 +44,13 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        // subscription to allCoins (already filtered) & portfolioData, updates portfolioCoins
+        // subscription to allCoins (already filtered) & portfolioData, updates portfolioCoins and sorts if needed
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
             .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] (returnedCoins) in
                 guard let self = self else { return }
-                self.portfolioCoins = returnedCoins
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancellables)
         
@@ -75,7 +75,6 @@ class HomeViewModel: ObservableObject {
         coinDataService.getCoins()
         marketDataService.getMarketData()
         HapticManager.notification(type: .success)
-        print("Reloading data")
     }
     
     // extracted .map from $searchText
@@ -94,9 +93,9 @@ class HomeViewModel: ObservableObject {
     }
     
     private func filterAndSortCoins(text: String, coins: [CoinModel], sort: SortOption) -> [CoinModel] {
-        var filteredCoins = filterCoins(text: text, coins: coins)
-        let sortedCoins = sortCoins(sort: sort, coins: filteredCoins)
-        return sortedCoins
+        var updatedCoins = filterCoins(text: text, coins: coins)
+        sortCoins(sort: sort, coins: &updatedCoins)
+        return updatedCoins
     }
     
     private func sortCoins(sort: SortOption, coins: inout [CoinModel]) {    // inout -> get and return the same array after being sorted
@@ -109,6 +108,18 @@ class HomeViewModel: ObservableObject {
             coins.sort(by: { $0.currentPrice > $1.currentPrice })
         case .priceReversed:
             coins.sort(by: { $0.currentPrice < $1.currentPrice })
+        }
+    }
+    
+    // will only sort by holdings or reversedHoldings if needed
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
+        switch sortOption {
+        case .holdings:
+            return coins.sorted(by: { $0.currentHoldingsValue > $1.currentHoldingsValue })
+        case .holdingsReversed:
+            return coins.sorted(by: { $0.currentHoldingsValue < $1.currentHoldingsValue })
+        default:
+            return coins
         }
     }
     
