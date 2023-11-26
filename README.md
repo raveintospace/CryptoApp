@@ -32,3 +32,4 @@ This app features:
 <li>Sort selectors set with opacity and animated with rotation3DEffect</li>
 <br/>
 <li>Custom NavigationLink for lazy loading of DetailView: background NavigationLink & segue method</li>
+<li>Specific module for coin details: Views, Model, ViewModel & DataService</li>
