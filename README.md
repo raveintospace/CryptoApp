@@ -33,3 +33,4 @@ This app features:
 <br/>
 <li>Custom NavigationLink for lazy loading of DetailView: background NavigationLink & segue method</li>
 <li>Specific module for coin details: Views, Model, ViewModel & DataService</li>
+<li>LazyVGrid in CoinDetailsView</li>
