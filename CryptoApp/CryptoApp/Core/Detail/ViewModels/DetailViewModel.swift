@@ -79,9 +79,10 @@ class DetailViewModel: ObservableObject {
                 
                 return (overviewArray, additionalArray)
             })
-            .sink { (returnedArrays) in
-                debugPrint(returnedArrays.overview)
-                debugPrint(returnedArrays.additional)
+            .sink { [weak self] (returnedArrays) in
+                guard let self = self else { return }
+                self.overviewStatistics = returnedArrays.overview
+                self.additionalStatistics = returnedArrays.additional
             }
             .store(in: &cancellables)
     }
