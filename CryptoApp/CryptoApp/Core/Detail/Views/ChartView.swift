@@ -12,13 +12,35 @@ struct ChartView: View {
     let data: [Double]
     let maxY: Double
     let minY: Double
+    let lineColor: Color
     
     init(coin: CoinModel) {
         self.data = coin.sparklineIn7D?.price ?? []
         self.maxY = data.max() ?? 0
         self.minY = data.min() ?? 0
+        
+        let priceChange = (data.last ?? 0) - (data.first ?? 0)
+        lineColor = priceChange > 0 ? Color.theme.green : Color.theme.red
     }
     
+    var body: some View {
+        VStack {
+            chartView
+                .frame(height: 200)
+                .background(chartBackground)
+        }
+    }
+}
+
+struct ChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChartView(coin: dev.coin)
+    }
+}
+
+extension ChartView {
+    
+    // Logic for calculations
     /* logic for xPosition
      300 width
      100 indices
@@ -28,17 +50,16 @@ struct ChartView: View {
      index[2] + 1 = 3 * 3 = 9
      index[99] + 1 = 100 * 3 = 300
     */
-    
     /* logic for yAxis & yPosition
      60000 maxY
      50000 minY
      60000 - 50000 = 10000 -> yAxis
      52000 - data point -> (data[index])
      52000 - 50000 = 2000 / 10000 = 20% -> yPosition
-     
+     1 - because iPhone's 0 is at top, not at bottom
      */
     
-    var body: some View {
+    private var chartView: some View {
         GeometryReader { geometry in
             Path { path in
                 for index in data.indices {
@@ -47,21 +68,25 @@ struct ChartView: View {
                     
                     let yAxis = maxY - minY
                     
-                    let yPosition = CGFloat((data[index] - minY) / yAxis) * geometry.size.height
+                    let yPosition = (1 - CGFloat((data[index] - minY) / yAxis)) * geometry.size.height
                     
                     if index == 0 {
-                        path.move(to: CGPoint(x: 0, y: 0))  // starts at top left
+                        path.move(to: CGPoint(x: xPosition, y: yPosition))
                     }
                     path.addLine(to: CGPoint(x: xPosition, y: yPosition))
                 }
             }
-            .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+            .stroke(lineColor, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
         }
     }
-}
-
-struct ChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartView(coin: dev.coin)
+    
+    private var chartBackground: some View {
+        VStack {
+            Divider()
+            Spacer()
+            Divider()
+            Spacer()
+            Divider()
+        }
     }
 }
