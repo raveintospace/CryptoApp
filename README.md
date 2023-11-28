@@ -8,7 +8,7 @@ This app features:
 <li>Color Theme</li>
 <li>Custom Header for Navigation View, with animated images and rows</li>
 <li>Overrided navigationBarTitles to use Color Theme</li>
-<li>Extensions for Double (Currency, Percentage, Abbreviation), Preview Provider (Object model mocks)</li>
+<li>Extensions for Double (Currency, Percentage, Abbreviation), Preview Provider (Object model mocks), Date(Short formatter & Date as String)</li>
 <br/>
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
@@ -34,3 +34,4 @@ This app features:
 <li>Custom NavigationLink for lazy loading of DetailView: background NavigationLink & segue method</li>
 <li>Specific module for coin details: Views, Model, ViewModel & DataService</li>
 <li>LazyVGrid in CoinDetailsView</li>
+<li>ChartView to display a graphic of coin price evolution, using Path, GeometryReader & animation to present it</li>
