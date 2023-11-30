@@ -21,25 +21,10 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    VStack(alignment: .leading) {
-                        Image("logo")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                        Text("This app has been made following a @SwiftfulThinking course on YouTube. It uses MVVM Architechture, Combine & CoreData.")
-                            .font(.callout)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color.theme.accent)
-                    }
-                    .padding(.vertical)
-                    Link("Subscribe on YouTube ▶️", destination: youtubeURL)
-                    Link("Buy Nick a coffee ☕️", destination: coffeURL)
-                } header: {
-                    Text("Course info")
-                }
-
+                courseInfoSection
+                coinGeckoSection
             }
+            .font(.headline)
             .tint(.blue)
             .listStyle(GroupedListStyle())
             .navigationTitle("Settings")
@@ -60,6 +45,69 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+    }
+}
+
+extension SettingsView {
+    
+    private var courseInfoSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                Image("logo")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                Text("This app has been made following a @SwiftfulThinking course on YouTube. It uses MVVM Architechture, Combine & CoreData.")
+                    .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.theme.accent)
+            }
+            .padding(.vertical)
+            Link("Subscribe on YouTube ▶️", destination: youtubeURL)
+            Link("Buy Nick a coffee ☕️", destination: coffeURL)
+        } header: {
+            Text("Course info")
+        }
+    }
+    
+    private var coinGeckoSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                Image("coingecko")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                Text("This cryptocurrency data used in this app comes from a free API from CoinGecko. API request may temporary fail due to free requests limits.")
+                    .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.theme.accent)
+            }
+            .padding(.vertical)
+            Link("Visit Coingecko 🦎", destination: coingeckoURL)
+        } header: {
+            Text("CoinGecko")
+        }
+    }
+    
+    private var developerSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                Image("coingecko")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                Text("This cryptocurrency data used in this app comes from a free API from CoinGecko. API request may temporary fail due to free requests limits.")
+                    .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.theme.accent)
+            }
+            .padding(.vertical)
+            Link("Visit Coingecko 🦎", destination: coingeckoURL)
+        } header: {
+            Text("Developer")
+        }
     }
 }
 
