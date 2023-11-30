@@ -24,6 +24,7 @@ struct DetailLoadingView: View {
 struct DetailView: View {
     
     @StateObject private var vm: DetailViewModel
+    @State private var showFullDescription: Bool = false
     
     // properties for LazyVGrid
     private let columns: [GridItem] = [
@@ -45,34 +46,18 @@ struct DetailView: View {
                 VStack(spacing: 20) {
                     overviewTitle
                     Divider()
-                    
-                    ZStack {
-                        if let coinDescription = vm.coinDescription,
-                           !coinDescription.isEmpty {
-                            VStack(alignment: .leading) {
-                                Text(coinDescription)
-                                    .lineLimit(3)
-                                    .font(.callout)
-                                    .foregroundColor(Color.theme.secondaryText)
-                                
-                                Button(action: {
-                                    
-                                }, label: {
-                                    Text("Read more...")
-                                        .font(.caption)
-                                        .fontWeight(.bold)
-                                        .padding(.vertical, 4)
-                                })
-                                .accentColor(.blue)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
-                    
+                    DescriptionSection
                     overviewGrid
                     additionalTitle
                     Divider()
                     additionalGrid
+                    
+                    ZStack {
+                        if let websiteString = vm.websiteURL,
+                           let url = URL(string: websiteString) {
+                            Link("Website", destination: url)
+                        }
+                    }
                 }
                 .padding(.leading)
             }
@@ -110,6 +95,33 @@ extension DetailView {
             .bold()
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var DescriptionSection: some View {
+        ZStack {
+            if let coinDescription = vm.coinDescription,
+               !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundColor(Color.theme.secondaryText)
+                    
+                    Button(action: {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    }, label: {
+                        Text(showFullDescription ? "Show less" : "Read more...")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 4)
+                    })
+                    .accentColor(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
     
     private var overviewGrid: some View {
