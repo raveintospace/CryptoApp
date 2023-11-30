@@ -51,15 +51,9 @@ struct DetailView: View {
                     additionalTitle
                     Divider()
                     additionalGrid
-                    
-                    ZStack {
-                        if let websiteString = vm.websiteURL,
-                           let url = URL(string: websiteString) {
-                            Link("Website", destination: url)
-                        }
-                    }
+                    websiteSection
                 }
-                .padding(.leading)
+                .padding()
             }
         }
         .navigationTitle(vm.coin.name)
@@ -158,5 +152,22 @@ extension DetailView {
             CoinImageView(coin: vm.coin)
                 .frame(width: 25, height: 25)
         }
+    }
+    
+    private var websiteSection: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            if let websiteString = vm.websiteURL,
+               let url = URL(string: websiteString) {
+                Link("Website", destination: url)
+            }
+            
+            if let redditString = vm.redditURL,
+               let url = URL(string: redditString) {
+                Link("Reddit", destination: url)
+            }
+        }
+        .accentColor(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
     }
 }
