@@ -23,6 +23,8 @@ struct SettingsView: View {
             List {
                 courseInfoSection
                 coinGeckoSection
+                developerSection
+                appSection
             }
             .font(.headline)
             .tint(.blue)
@@ -78,7 +80,7 @@ extension SettingsView {
                     .scaledToFit()
                     .frame(height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                Text("This cryptocurrency data used in this app comes from a free API from CoinGecko. API request may temporary fail due to free requests limits.")
+                Text("The cryptocurrency data used in this app comes from a free CoinGecko's API. API requests may temporary fail due to free requests limits.")
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundColor(Color.theme.accent)
@@ -93,20 +95,31 @@ extension SettingsView {
     private var developerSection: some View {
         Section {
             VStack(alignment: .leading) {
-                Image("coingecko")
+                Image("LinkPic")
                     .resizable()
-                    .scaledToFit()
-                    .frame(height: 100)
+                    .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                Text("This cryptocurrency data used in this app comes from a free API from CoinGecko. API request may temporary fail due to free requests limits.")
+                Text("This app is one of the most interesting projects I have enrolled. I have learned a lot of useful practices, resources and tricks to deliver an outstanding result.")
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundColor(Color.theme.accent)
             }
             .padding(.vertical)
-            Link("Visit Coingecko 🦎", destination: coingeckoURL)
+            Link("Visit my Linkedin 👨🏻‍💻", destination: linkedinURL)
+            Link("Visit my GitHub 🚀", destination: githubURL)
         } header: {
             Text("Developer")
+        }
+    }
+    
+    private var appSection: some View {
+        Section {
+            Link("Terms of Service", destination: defaultURL)
+            Link("Privacy Policy", destination: defaultURL)
+            Link("Company Website", destination: defaultURL)
+            Link("Learn More", destination: defaultURL)
+        } header: {
+            Text("Application")
         }
     }
 }
