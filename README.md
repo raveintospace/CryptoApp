@@ -36,3 +36,5 @@ This app features:
 <li>LazyVGrid in CoinDetailsView</li>
 <li>ChartView to display a graphic of coin price evolution, using Path, GeometryReader & animation to present it</li>
 <li>Collapsable text, animated with lineLimit</li>
+<br/>
+<li>Settings view: sheet view, with sections about the course, the API, the developer and the app</li>
