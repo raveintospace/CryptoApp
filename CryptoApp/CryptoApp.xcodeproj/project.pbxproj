@@ -46,6 +46,7 @@
 		34DF97492B18E4740048DC0F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF97482B18E4740048DC0F /* String.swift */; };
 		34F305172B0BCDA80025B4AC /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34F305152B0BCDA80025B4AC /* PortfolioContainer.xcdatamodeld */; };
 		34F305192B0BCEA80025B4AC /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F305182B0BCEA80025B4AC /* PortfolioDataService.swift */; };
+		34F3A4AD2B1A587800953501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */; };
 		34FABF5C2B1117C200B9E5BF /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FABF5B2B1117C200B9E5BF /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		34DF97482B18E4740048DC0F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		34F305162B0BCDA80025B4AC /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		34F305182B0BCEA80025B4AC /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34FABF5B2B1117C200B9E5BF /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				340F4E662AFD1F0A007B62CC /* Components */,
+				34F3A4AA2B1A584700953501 /* Launch */,
 				340F4E612AFD1DBF007B62CC /* Home */,
 				348A76AA2B12606F0025A415 /* Detail */,
 			);
@@ -330,6 +333,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		34F3A4AA2B1A584700953501 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				34F3A4AB2B1A585A00953501 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		34F3A4AB2B1A585A00953501 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -411,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F3A4AD2B1A587800953501 /* LaunchScreen.storyboard in Resources */,
 				3417D3C62AFCFC5500CE752D /* Preview Assets.xcassets in Resources */,
 				3417D3C32AFCFC5500CE752D /* Assets.xcassets in Resources */,
 			);
@@ -617,7 +637,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,7 +670,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
