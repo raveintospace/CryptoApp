@@ -20,11 +20,16 @@ struct CryptoAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                HomeView()
-                    .navigationBarHidden(true)
-            }
-            .environmentObject(vm)  // -> Available for the whole app
+            
+            ZStack {
+                NavigationView {
+                    HomeView()
+                        .navigationBarHidden(true)
+                }
+                .environmentObject(vm)  // -> Available for the whole app
+                
+                LaunchView()
+            }            
         }
     }
 }

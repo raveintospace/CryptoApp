@@ -47,6 +47,7 @@
 		34F305172B0BCDA80025B4AC /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34F305152B0BCDA80025B4AC /* PortfolioContainer.xcdatamodeld */; };
 		34F305192B0BCEA80025B4AC /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F305182B0BCEA80025B4AC /* PortfolioDataService.swift */; };
 		34F3A4AD2B1A587800953501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */; };
+		34F3A4AF2B1A5AEE00953501 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3A4AE2B1A5AEE00953501 /* LaunchView.swift */; };
 		34FABF5C2B1117C200B9E5BF /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FABF5B2B1117C200B9E5BF /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		34F305162B0BCDA80025B4AC /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		34F305182B0BCEA80025B4AC /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34F3A4AE2B1A5AEE00953501 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		34FABF5B2B1117C200B9E5BF /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				34F3A4AC2B1A587800953501 /* LaunchScreen.storyboard */,
+				34F3A4AE2B1A5AEE00953501 /* LaunchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				3434A8332AFFCA8800286A0F /* HomeViewModel.swift in Sources */,
 				34F305172B0BCDA80025B4AC /* PortfolioContainer.xcdatamodeld in Sources */,
 				34DA580A2B18FC6800F75C89 /* SettingsView.swift in Sources */,
+				34F3A4AF2B1A5AEE00953501 /* LaunchView.swift in Sources */,
 				3434A8392AFFDA6100286A0F /* NetworkManager.swift in Sources */,
 				3457065E2B029A270015CEB7 /* LocalFileManager.swift in Sources */,
 				349F0C4F2B13625B002138C4 /* CoinDetailModel.swift in Sources */,
