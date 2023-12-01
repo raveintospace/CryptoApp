@@ -40,4 +40,5 @@ This app features:
 <br/>
 <li>Settings view: sheet view, with sections about the course, the API, the developer and the app</li>
 <br/>
-<li>Custom AppIcon & Launch animation</li>
+<li>Custom AppIcon</li>
+<li>Launch screen: Two launch screens (storyboard & swift), with text mapped to an array of strings shown animated using timer</li>
