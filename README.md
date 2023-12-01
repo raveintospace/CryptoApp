@@ -8,6 +8,7 @@ This app features:
 <li>Color Theme</li>
 <li>Custom Header for Navigation View, with animated images and rows</li>
 <li>Overrided navigationBarTitles to use Color Theme</li>
+<br/>
 <li>Extensions for Double (Currency, Percentage, Abbreviation), Preview Provider (Object model mocks), Date(Short formatter & Date as String), String (HTML remover)</li>
 <br/>
 <li>MVVM & Environment Object for our Home VM</li>
@@ -38,3 +39,5 @@ This app features:
 <li>Collapsable text, animated with lineLimit</li>
 <br/>
 <li>Settings view: sheet view, with sections about the course, the API, the developer and the app</li>
+<br/>
+<li>Custom AppIcon & Launch animation</li>
