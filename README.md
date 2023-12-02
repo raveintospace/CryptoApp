@@ -41,4 +41,5 @@ This app features:
 <li>Settings view: sheet view, with sections about the course, the API, the developer and the app</li>
 <br/>
 <li>Custom AppIcon</li>
-<li>Launch screen: Two launch screens (storyboard & swift), with text mapped to an array of strings shown animated using timer</li>
+<li>Launch screen: Two launch screens (storyboard plain view & swiftUI view), with text mapped to an array of strings shown animated using timer & disappearing with transition effect</li>
+<li>Code optimized for iPad navigation</li>
