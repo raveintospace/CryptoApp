@@ -100,7 +100,7 @@ extension PortfolioView {
                 Spacer()
                 TextField("Ex: 4.6", text: $amountText)
                     .multilineTextAlignment(.trailing)
-                    .keyboardType(.decimalPad)
+                    .keyboardType(.numbersAndPunctuation)
             }
             Divider()
             HStack {
