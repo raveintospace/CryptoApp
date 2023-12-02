@@ -11,6 +11,7 @@ import SwiftUI
 struct CryptoAppApp: App {
     
     @StateObject private var vm = HomeViewModel()
+    @State private var showLaunchView: Bool = true
     
     // override navigationBarTitles
     init() {
@@ -28,7 +29,13 @@ struct CryptoAppApp: App {
                 }
                 .environmentObject(vm)  // -> Available for the whole app
                 
-                LaunchView()
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .zIndex(2.0)
             }            
         }
     }
