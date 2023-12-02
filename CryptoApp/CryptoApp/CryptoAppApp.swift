@@ -13,10 +13,11 @@ struct CryptoAppApp: App {
     @StateObject private var vm = HomeViewModel()
     @State private var showLaunchView: Bool = true
     
-    // override navigationBarTitles
+    // override navigationBarTitles & tableView appearence (list)
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
+        UITableView.appearance().backgroundColor = UIColor.clear
     }
     
     var body: some Scene {
