@@ -18,7 +18,6 @@
 		341025A92B09114700613FDF /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341025A82B09114700613FDF /* PortfolioView.swift */; };
 		341025AD2B092E6200613FDF /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341025AC2B092E6200613FDF /* CoinLogoView.swift */; };
 		3417D3BF2AFCFC5100CE752D /* CryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417D3BE2AFCFC5100CE752D /* CryptoAppApp.swift */; };
-		3417D3C12AFCFC5100CE752D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417D3C02AFCFC5100CE752D /* ContentView.swift */; };
 		3417D3C32AFCFC5500CE752D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3417D3C22AFCFC5500CE752D /* Assets.xcassets */; };
 		3417D3C62AFCFC5500CE752D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3417D3C52AFCFC5500CE752D /* Preview Assets.xcassets */; };
 		3417D3CE2AFCFF4B00CE752D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417D3CD2AFCFF4B00CE752D /* Color.swift */; };
@@ -74,7 +73,6 @@
 		341025AC2B092E6200613FDF /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		3417D3BB2AFCFC5100CE752D /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3417D3BE2AFCFC5100CE752D /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
-		3417D3C02AFCFC5100CE752D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3417D3C22AFCFC5500CE752D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3417D3C52AFCFC5500CE752D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3417D3CD2AFCFF4B00CE752D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				340F4E6C2AFD295B007B62CC /* Models */,
 				340F4E602AFD1DB4007B62CC /* Core */,
 				34DA58072B18FC0600F75C89 /* Settings */,
-				3417D3C02AFCFC5100CE752D /* ContentView.swift */,
 				3417D3C22AFCFC5500CE752D /* Assets.xcassets */,
 				3417D3C42AFCFC5500CE752D /* Preview Content */,
 			);
@@ -465,7 +462,6 @@
 				3457065E2B029A270015CEB7 /* LocalFileManager.swift in Sources */,
 				349F0C4F2B13625B002138C4 /* CoinDetailModel.swift in Sources */,
 				344E14C62B07DC6100D2B305 /* MarketDataModel.swift in Sources */,
-				3417D3C12AFCFC5100CE752D /* ContentView.swift in Sources */,
 				344E14C22B07D15F00D2B305 /* StatisticView.swift in Sources */,
 				345706582B028F500015CEB7 /* CoinImageView.swift in Sources */,
 				340F4E652AFD1DEE007B62CC /* HomeView.swift in Sources */,
@@ -638,7 +634,7 @@
 				DEVELOPMENT_TEAM = 4XAMG487KR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto App";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -671,7 +667,7 @@
 				DEVELOPMENT_TEAM = 4XAMG487KR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto App";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;

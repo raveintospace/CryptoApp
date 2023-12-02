@@ -27,6 +27,7 @@ struct CryptoAppApp: App {
                     HomeView()
                         .navigationBarHidden(true)
                 }
+                .navigationViewStyle(StackNavigationViewStyle())    // -> sets iPad navigation like iPhone navigation
                 .environmentObject(vm)  // -> Available for the whole app
                 
                 ZStack {
