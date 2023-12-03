@@ -44,6 +44,7 @@ This app features:
 <li>Launch screen: Two launch screens (storyboard plain view & swiftUI view), with text mapped to an array of strings shown animated using timer & disappearing with transition effect</li>
 <li>Code optimized for iPad navigation</li>
 <br/>
+  
 ![Screenshot 2023-12-02 at 16 27 11](https://github.com/raveintospace/CryptoApp/assets/94604036/b08f22c1-475c-48e0-b706-92445d0d46c1)
 
 ![Screenshot 2023-12-02 at 16 27 41](https://github.com/raveintospace/CryptoApp/assets/94604036/6e4cc74b-d6e3-4951-9f07-289c47bab632)
